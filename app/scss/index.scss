@@ -1,0 +1,332 @@
+.bg-top {
+	position: absolute;
+	top: -20px;
+	right: 0;
+	left: 0;
+	background: #eeeeee;
+	height: 450px;
+	z-index: 1;
+}
+
+.bg-bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #eeeeee;
+	height: 280px;
+	z-index: 1;
+}
+
+/* ---------------------- header ---------------------- */
+header {
+	margin-top: 20px;
+	position: relative;
+	z-index: 2;
+	.section-inner {
+
+	}
+	.cont-flex {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+
+		padding-top: 15px;
+		padding-bottom: 15px;
+		width: 100%;
+
+		background: url("../images/bg-header.png") no-repeat;
+		background-size: 100% 100%;
+	}
+	.text {
+		@include f-r;
+		font-size: 70px;
+		color: #fff;
+		text-align: center;
+	}
+
+	.text, img {
+		margin: 10px 1%;
+	}
+
+	@media only screen and (max-width : 1350px) {
+		.text {
+			font-size: 50px;
+		}
+	}
+
+	@media only screen and (max-width : 850px) {
+		.text {
+			width: 100%;
+			margin-top: 25px;
+		}
+		.cont-flex {
+			flex-wrap: wrap;
+		}
+	}
+
+	@media only screen and (max-width : 600px) {
+		img {
+			width: 150px;
+		}
+		.text {
+			font-size: 29px;
+		}
+	}
+
+
+}
+/* --------------------- /header ---------------------- */
+
+
+/* ---------------------- Section slider ---------------------- */
+section.slider {
+	margin-top: 20px;
+	.section-inner {
+		position: relative;
+	}
+	.button {
+		max-width: 215px;
+		border-bottom: none;
+		
+		background: #1960aa;
+		color: #fff;
+		
+		cursor: pointer;
+		transition: 0.5s;
+		z-index: 5;
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 0.7;
+		p {
+			@include f-r;
+			font-size: 25px;
+			text-align: center;
+			padding: 10px 10px 5px 10px;
+		}
+		&:hover {
+			background: #504f50;
+		}
+
+		@media only screen and (max-width : 600px) {
+			p {
+				font-size: 16px;
+				padding: 7px 5px 5px 5px;
+			}
+		}
+	}
+	.owl-carousel .owl-item img {
+	    max-height: 667px;
+	}
+	@media only screen and (max-width : 1730px) {
+		.owl-prev {
+			left: -5px;
+		}
+		.owl-next {
+			right: -5px;
+		}
+	}
+
+	@media only screen and (max-width : 650px) {
+		.owl-prev {
+			width: 50px;
+			height: 50px;
+		}
+		.owl-next {
+			width: 50px;
+			height: 50px;
+		}
+	}
+}
+/* --------------------- /Section slider ---------------------- */
+
+
+/* ---------------------- Section contacts ---------------------- */
+section.contacts {
+	margin-top: 55px;
+	.advs {	
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: center;
+
+		.adv {
+			@include f-r;
+			font-size: 36px;
+			color: #3a3b3b;
+			padding-right: 35px;
+
+			margin: 10px 1%;
+
+			background: url("../images/cr-blue.png") no-repeat;
+			background-position: right center;
+		}
+	}
+
+	.contact {
+		margin-top: 90px;
+		.title {
+			@include f-r;
+			font-size: 60px;
+			color: #504f50;
+			text-align: center;
+		}
+
+		.subtitle {
+			@include f-r;
+			font-size: 36px;
+			color: #504f50;
+			text-align: center;
+		}
+
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 80px;
+			input {
+				@include f-r;
+				font-size: 28px;
+				color: #504f50;
+				@include placeholder-color(#504f50);
+				border: none;
+				outline: none;
+				border-bottom: 4px solid #3a3b3b;
+				padding: 13px 0;
+				width: 31.33%;
+				margin: 0 1%;
+
+				&.invalid {
+					border-bottom: 4px solid #7b3b3b;
+				}
+			}
+
+			input[type="submit"] {
+				max-width: 215px;
+				border-bottom: none;
+				margin-top: 70px;
+				background: #1960aa;
+				color: #fff;
+				padding-top: 15px;
+				cursor: pointer;
+				transition: 0.5s;
+				
+				&:hover {
+					background: #504f50;
+				}
+			}
+		}
+
+		.alert {
+			@include f-r;
+			font-size: 18px;
+			color: #7b3b3b;
+			text-align: center;
+			margin-top: 10px;
+			display: none;
+		}
+	}
+
+	@media only screen and (max-width : 1000px) {
+		margin-top: 50px;
+	}
+
+	@media only screen and (max-width : 650px) {
+		.contact {
+			margin-top: 50px;
+			.title {
+				font-size: 45px;
+			}
+			.subtitle {
+				font-size: 30px;
+			}
+
+			form {
+				margin-top: 40px;
+				input {
+					width: 100%;
+				}
+			}
+		}
+
+		.advs {	
+			.adv {
+				font-size: 21px;
+				line-height: 27px;
+				padding-right: 28px;
+
+				margin: 10px 2%;
+			}
+		}
+	}
+}
+/* --------------------- /Section contacts ---------------------- */
+
+/* ---------------------- footer ---------------------- */
+footer {
+	margin-top: 70px;
+	padding-bottom: 55px;
+	position: relative;
+	z-index: 2;
+	.top {
+		.boxes {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			.box {
+				@include f-l;
+				font-size: 20px;
+				color: #3a3b3b;
+				padding-right: 35px;
+				margin: 10px 1%;
+				background: url("../images/cr-blue.png") no-repeat;
+				background-position: right center;
+				white-space: nowrap;
+
+				a {
+					@include f-r;
+					font-size: 30px;
+					line-height: 30px;
+					color: #1960aa;
+				}
+			}
+		}
+	}
+
+	.bottom {
+		margin-top: 60px;
+		display: flex;
+		justify-content: space-between;
+		@include f-l;
+		font-size: 16px;
+		color: #3a3c3c;
+		a {
+			color: #3a3c3c;
+		}
+		.sep {
+			margin: 0 5px; 
+		}
+	}
+
+	@media only screen and (max-width : 650px) {
+		padding-bottom: 25px;
+		.bottom {
+			margin-top: 35px;
+		}
+		.top {
+			.boxes {
+				.box {
+					background: none;
+					padding-right: 0;
+					a {
+						font-size: 24px;
+					}
+				}
+			}
+		}
+	}
+}
+/* --------------------- /footer ---------------------- */
