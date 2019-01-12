@@ -22,7 +22,53 @@
 header {
 	margin-top: 20px;
 	position: relative;
-	z-index: 2;
+	z-index: 200;
+	.tel {
+		background: #1960aa;
+		color: #fff;
+		
+		cursor: pointer;
+		transition: 0.5s;
+		z-index: 99;
+	
+		padding: 10px 10px 5px 10px;
+		white-space: nowrap;
+		margin-right: 10px;
+		margin-left: 10px;
+		p {
+			@include f-r;
+			font-size: 25px;
+			text-align: center;
+			
+			display: inline-block;
+		}
+
+		i {
+			display: inline-block;
+		}
+		&:hover {
+			background: #504f50;
+		}
+
+		@media only screen and (max-width : 980px) {
+			position: fixed;
+			z-index: 99;
+			right: auto;
+			left: 10px;
+			bottom: 10px;
+			top: auto;
+			margin: 0;
+			p {
+				display: none;
+			}
+			i {
+				font-size: 28px;
+				position: relative;
+				left: 1px;
+				bottom: 1px;
+			}
+		}
+	}
 	.section-inner {
 
 	}
@@ -40,7 +86,7 @@ header {
 	}
 	.text {
 		@include f-r;
-		font-size: 70px;
+		font-size: 50px;
 		color: #fff;
 		text-align: center;
 	}
@@ -82,6 +128,8 @@ header {
 /* ---------------------- Section slider ---------------------- */
 section.slider {
 	margin-top: 20px;
+	position: relative;
+	z-index: 99;
 	.section-inner {
 		position: relative;
 	}
@@ -117,6 +165,8 @@ section.slider {
 			}
 		}
 	}
+
+	
 	.owl-carousel .owl-item img {
 	    max-height: 667px;
 	}
@@ -146,22 +196,101 @@ section.slider {
 /* ---------------------- Section contacts ---------------------- */
 section.contacts {
 	margin-top: 55px;
-	.advs {	
+	overflow: visible;
+	position: relative;
+	z-index: 100;
+
+	.advantages {	
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
 		justify-content: center;
+		position: relative;	
 
-		.adv {
-			@include f-r;
-			font-size: 36px;
-			color: #3a3b3b;
+		padding: 0 70px;
+
+		@media only screen and (max-width : 960px) {
+			 flex-wrap: wrap;
+		}
+		.popup {
+			position: absolute;	
+			background:	#eee;
+			width: 300px;	
+
+			padding: 20px;	
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 95%;
+			visibility: hidden;
+			opacity: 0;
+			transition: 0.5s;
+	
+			.content {
+				@include f-r;
+				font-size: 18px;
+				color: #3a3b3b;
+			}
+			/*
+			.irc {
+				border-top: 10px solid #eee;
+	    		border-left: 10px solid transparent;
+	    		border-right: 10px solid transparent;
+	    		height: 0;
+	    		position: absolute;
+	    		bottom: -10px;
+	    		width: 0;
+	    		left: 50%;
+			}*/
+		}
+
+		.advantage {
+			cursor: pointer;
+			position: relative;
+
+			.title {
+				@include f-r;
+				font-size: 36px;
+				color: #3a3b3b;
+				white-space: nowrap;
+				transition: 0.5s;
+			}
+			.more {
+				@include f-r;
+				font-size: 14px;
+				color: #3a3b3b;
+				i {
+					font-size: 10px;
+				}
+				width: 100%;
+				text-align: center;
+				display: none;
+				position: absolute;
+				bottom: -15px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.text {
+				display: none;
+			}
 			padding-right: 35px;
 
-			margin: 10px 1%;
+			margin: 10px 3%;
 
 			background: url("../images/cr-blue.png") no-repeat;
-			background-position: right center;
+			background-position: right 3px center;
+
+			&:hover {
+				.title {
+					color: #1960AA;
+				}
+				.popup {
+					visibility: visible;
+					opacity: 1;
+					bottom: 115%;
+				}
+			}
+
+
 		}
 	}
 
@@ -251,13 +380,32 @@ section.contacts {
 			}
 		}
 
-		.advs {	
-			.adv {
-				font-size: 21px;
-				line-height: 27px;
+		.advantages {	
+			padding: 0 20px;
+			margin-top: -25px;
+			.advantage {
+	
+				.popup {
+					width: 200px;
+				}
+
+				&:first-child {
+					.popup {
+						left: 0;
+					}
+				}
+				.title {
+					font-size: 26px;
+					line-height: 27px;
+				}
+				.more {
+					display: block;
+				}
+				
 				padding-right: 28px;
 
 				margin: 10px 2%;
+				margin-top: 25px;
 			}
 		}
 	}
@@ -299,7 +447,7 @@ footer {
 	.bottom {
 		margin-top: 60px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		@include f-l;
 		font-size: 16px;
 		color: #3a3c3c;
@@ -330,3 +478,4 @@ footer {
 	}
 }
 /* --------------------- /footer ---------------------- */
+

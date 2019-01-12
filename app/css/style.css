@@ -356,7 +356,44 @@ body .owl-theme .owl-dots .owl-dot.active span, body .owl-theme .owl-dots .owl-d
 header {
   margin-top: 20px;
   position: relative;
-  z-index: 2; }
+  z-index: 200; }
+  header .tel {
+    background: #1960aa;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    z-index: 99;
+    padding: 10px 10px 5px 10px;
+    white-space: nowrap;
+    margin-right: 10px;
+    margin-left: 10px; }
+    header .tel p {
+      font-family: 'almoni-regular', "Arial";
+      font-weight: normal;
+      font-size: 25px;
+      text-align: center;
+      display: inline-block; }
+    header .tel i {
+      display: inline-block; }
+    header .tel:hover {
+      background: #504f50; }
+    @media only screen and (max-width: 980px) {
+      header .tel {
+        position: fixed;
+        z-index: 99;
+        right: auto;
+        left: 10px;
+        bottom: 10px;
+        top: auto;
+        margin: 0; }
+        header .tel p {
+          display: none; }
+        header .tel i {
+          font-size: 28px;
+          position: relative;
+          left: 1px;
+          bottom: 1px; } }
   header .cont-flex {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -374,7 +411,7 @@ header {
   header .text {
     font-family: 'almoni-regular', "Arial";
     font-weight: normal;
-    font-size: 70px;
+    font-size: 50px;
     color: #fff;
     text-align: center; }
   header .text, header img {
@@ -398,7 +435,9 @@ header {
 /* --------------------- /header ---------------------- */
 /* ---------------------- Section slider ---------------------- */
 section.slider {
-  margin-top: 20px; }
+  margin-top: 20px;
+  position: relative;
+  z-index: 99; }
   section.slider .section-inner {
     position: relative; }
   section.slider .button {
@@ -446,8 +485,11 @@ section.slider {
 /* --------------------- /Section slider ---------------------- */
 /* ---------------------- Section contacts ---------------------- */
 section.contacts {
-  margin-top: 55px; }
-  section.contacts .advs {
+  margin-top: 55px;
+  overflow: visible;
+  position: relative;
+  z-index: 100; }
+  section.contacts .advantages {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -456,16 +498,80 @@ section.contacts {
     width: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center; }
-    section.contacts .advs .adv {
-      font-family: 'almoni-regular', "Arial";
-      font-weight: normal;
-      font-size: 36px;
-      color: #3a3b3b;
+            justify-content: center;
+    position: relative;
+    padding: 0 70px; }
+    @media only screen and (max-width: 960px) {
+      section.contacts .advantages {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
+    section.contacts .advantages .popup {
+      position: absolute;
+      background: #eee;
+      width: 300px;
+      padding: 20px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      bottom: 95%;
+      visibility: hidden;
+      opacity: 0;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      /*
+			.irc {
+				border-top: 10px solid #eee;
+	    		border-left: 10px solid transparent;
+	    		border-right: 10px solid transparent;
+	    		height: 0;
+	    		position: absolute;
+	    		bottom: -10px;
+	    		width: 0;
+	    		left: 50%;
+			}*/ }
+      section.contacts .advantages .popup .content {
+        font-family: 'almoni-regular', "Arial";
+        font-weight: normal;
+        font-size: 18px;
+        color: #3a3b3b; }
+    section.contacts .advantages .advantage {
+      cursor: pointer;
+      position: relative;
       padding-right: 35px;
-      margin: 10px 1%;
+      margin: 10px 3%;
       background: url("../images/cr-blue.png") no-repeat;
-      background-position: right center; }
+      background-position: right 3px center; }
+      section.contacts .advantages .advantage .title {
+        font-family: 'almoni-regular', "Arial";
+        font-weight: normal;
+        font-size: 36px;
+        color: #3a3b3b;
+        white-space: nowrap;
+        -webkit-transition: 0.5s;
+        transition: 0.5s; }
+      section.contacts .advantages .advantage .more {
+        font-family: 'almoni-regular', "Arial";
+        font-weight: normal;
+        font-size: 14px;
+        color: #3a3b3b;
+        width: 100%;
+        text-align: center;
+        display: none;
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%); }
+        section.contacts .advantages .advantage .more i {
+          font-size: 10px; }
+      section.contacts .advantages .advantage .text {
+        display: none; }
+      section.contacts .advantages .advantage:hover .title {
+        color: #1960AA; }
+      section.contacts .advantages .advantage:hover .popup {
+        visibility: visible;
+        opacity: 1;
+        bottom: 115%; }
   section.contacts .contact {
     margin-top: 90px; }
     section.contacts .contact .title {
@@ -549,11 +655,22 @@ section.contacts {
         margin-top: 40px; }
         section.contacts .contact form input {
           width: 100%; }
-    section.contacts .advs .adv {
-      font-size: 21px;
-      line-height: 27px;
-      padding-right: 28px;
-      margin: 10px 2%; } }
+    section.contacts .advantages {
+      padding: 0 20px;
+      margin-top: -25px; }
+      section.contacts .advantages .advantage {
+        padding-right: 28px;
+        margin: 10px 2%;
+        margin-top: 25px; }
+        section.contacts .advantages .advantage .popup {
+          width: 200px; }
+        section.contacts .advantages .advantage:first-child .popup {
+          left: 0; }
+        section.contacts .advantages .advantage .title {
+          font-size: 26px;
+          line-height: 27px; }
+        section.contacts .advantages .advantage .more {
+          display: block; } }
 
 /* --------------------- /Section contacts ---------------------- */
 /* ---------------------- footer ---------------------- */
@@ -595,9 +712,9 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-family: 'almoni-light', "Arial";
     font-weight: lighter;
     font-size: 16px;
@@ -618,3 +735,8 @@ footer {
           font-size: 24px; } }
 
 /* --------------------- /footer ---------------------- */
+.bb {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
